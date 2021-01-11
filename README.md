@@ -1,5 +1,7 @@
 # auxilium
-<div style="margin-left: auto; margin-right: auto; align:center; width: 40%;"><img src="./img/auxilium.png" /></div>
+<p align="center">
+  <img width="300" src="./img/auxilium.png">
+</p>
 
 <br /><br />
 
