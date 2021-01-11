@@ -10,7 +10,7 @@ auxilium is an application that will take a configuration file of one to many "s
 These actions and configurations, listed below can be used for run other programs, commands or simply output text.
 
 ## Examples
-* [Configuration file example](./test_data/config.auxilium.yml)
+* [Configuration file example](./test/config.aux.yml)
 
 ## Command help
 ```bash
