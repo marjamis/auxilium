@@ -17,7 +17,6 @@ func clearScreen() {
 	fmt.Print("\033[H\033[2J")
 }
 
-// TODO should these be in a mapping to show they're tied together?
 func runScript(command string, arguments []string, workingdirectory string) {
 	path, _ := exec.LookPath(command)
 	args := make([]string, 1+len(arguments))
@@ -27,7 +26,6 @@ func runScript(command string, arguments []string, workingdirectory string) {
 		args[i+1] = arg
 	}
 
-	// TODO find a way to wrap this consistently as currently I have to do this over and over again
 	if workingdirectory == "" && bbd.Defaults.WorkingDirectory != "" {
 		workingdirectory = bbd.Defaults.WorkingDirectory
 	}

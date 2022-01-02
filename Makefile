@@ -30,7 +30,7 @@ run: ## Runs the prod version of the application
 
 dev: ## Runs a dev version of the application
 	$(MAKE) command NAME="devTester"
-	go run main.go --config ./test/config.aux.yml
+	go run main.go --config ./test/demo.aux.yml
 
 clean: ## Cleans up any old/unneeded items
 	-rm exampleFile # - means ignore this line on failure, such as if the file doesn't exist.

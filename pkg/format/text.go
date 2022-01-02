@@ -57,6 +57,10 @@ func colour(textColour string, textBackgroundColour string) aurora.Color {
 		c |= aurora.RedFg
 	case "yellow":
 		c |= aurora.YellowFg
+	case "black":
+		c |= aurora.BlackFg
+	case "white":
+		c |= aurora.WhiteFg
 	}
 	switch strings.ToLower(textBackgroundColour) {
 	case "blue":
@@ -67,6 +71,10 @@ func colour(textColour string, textBackgroundColour string) aurora.Color {
 		c |= aurora.RedBg
 	case "yellow":
 		c |= aurora.YellowBg
+	case "black":
+		c |= aurora.BlackBg
+	case "white":
+		c |= aurora.WhiteBg
 	}
 
 	return c

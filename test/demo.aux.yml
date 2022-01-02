@@ -1,45 +1,52 @@
 TutorialName: Testing Applications
 Defaults:
-  BackgroundColour: Yellow
+  BackgroundColour: Black
   TextColour: default
   WorkingDirectory: .
 Steps:
   - Action: OutputText
     Text: This is the beginning of the tutorial.
-    TextColour: Green
+    TextColour: White
+
   - Action: RunScript
     Command: bash
     Args:
       - ./test/first_script.sh
+
   - Action: RunScript
     Command: python3.6
     Args:
       - ./test/second_script.py
+
   - Action: OutputText
-    Text: Here is some text that will be hidden due to the default backgrund and explicit text colour
-    TextColour: Yellow
-  - Action: OutputText
-    Text: Blue
-    TextColour: Blue
+    Text: This is black text colour and green background colour overriding the defaults
+    TextColour: Black
+    TextBackgroundColour: Green
+
   - Action: BashShellPrompt
+
   - Action: RunScript
     Command: echo
     Args:
-      - here
-      - i
-      - am
+      - Here
+      - is
+      - an echo output from the config file
+
   - Action: RunScript
     Command: pwd
-    WorkingDirectory: /home/
+    WorkingDirectory: /tmp/
+
   - Action: RunScript
-    Command: pwd
+    Command: whoami
+
   - Action: Makefile
     FileLocation: ./test/Makefile
     Target: run
+
   - Action: Makefile
     FileLocation: ./test/Makefile
     Target: dev
+
   - Action: OutputText
     Text: This is the end of the tutorial.
-    TextColour: Red
-    TextBackgroundColour: Green
+    TextColour: White

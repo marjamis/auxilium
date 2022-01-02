@@ -72,6 +72,5 @@ func initConfig() {
 		return
 	}
 
-	// TODO Check on this or if this should be too blackbloard after verification
 	viper.Unmarshal(&config)
 }
