@@ -8,13 +8,11 @@ import (
 	"github.com/spf13/viper"
 
 	"github.com/marjamis/auxilium/internal/pkg/blackboard"
-	"github.com/marjamis/auxilium/internal/pkg/configuration"
 	"github.com/marjamis/auxilium/pkg/engine"
 )
 
 var (
 	cfgFile string
-	config  configuration.File
 	bbd     = &blackboard.BlackboardData
 )
 
@@ -26,17 +24,11 @@ var rootCmd = &cobra.Command{
 custom text explaining the process. It's used as a way to write a CLI demo, which runs live commands, allowing for
 easier proding in another shell, while also being scripted to ensure the right execution order and pacing.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		bbd.TutorialName = config.TutorialName
-		// TODO also jive this into the data as I have to make three modifications for each new value
-		bbd.Defaults = blackboard.Defaults{
-			BackgroundColour: config.Defaults.BackgroundColour,
-			TextColour:       config.Defaults.TextColour,
-			WorkingDirectory: config.Defaults.WorkingDirectory,
-		}
-		engine.Workflow(config.Steps, bbd)
+		engine.Workflow(bbd.Steps, bbd)
 	},
 }
 
+// Execute is used by cobra to execute the cmd
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
@@ -72,5 +64,6 @@ func initConfig() {
 		return
 	}
 
-	viper.Unmarshal(&config)
+	// Loads the configuration file data straight into the blackboard for global usage. In the future may required additional vetting logic
+	viper.Unmarshal(&bbd)
 }
