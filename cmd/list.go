@@ -11,7 +11,7 @@ var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "Lists out all the steps in the supplied configuration file.",
 	Run: func(cmd *cobra.Command, args []string) {
-		engine.ListSteps(config.Steps)
+		engine.ListSteps(bbd.Steps)
 	},
 }
 

@@ -9,21 +9,7 @@ import (
 	"github.com/marjamis/auxilium/pkg/format"
 )
 
-// Step is the struct for all the possible information that a Step may have.
-// Note: in the future perhaps I should break these out into their own structures rather than being this flat? Especially as not all combinations make sense.
-type Step struct {
-	Action               string   `yaml:"Action"`
-	Text                 string   `yaml:"Text"`
-	TextColour           string   `yaml:"TextColour,omitempty"`
-	TextBackgroundColour string   `yaml:"BackgroundColour,omitempty"`
-	Command              string   `yaml:"Command"`
-	Args                 []string `yaml:"Args"`
-	FileLocation         string   `yaml:"FileLocation"`
-	Target               string   `yaml:"Target"`
-	WorkingDirectory     string   `yaml:"WorkingDirectory"`
-}
-
-func actionSelector(step Step, fastforward bool) {
+func actionSelector(step blackboard.Step, fastforward bool) {
 	switch step.Action {
 	case "OutputText":
 		format.Print(step.Text, step.TextColour, step.TextBackgroundColour, fastforward)
@@ -44,7 +30,7 @@ func actionSelector(step Step, fastforward bool) {
 }
 
 // Workflow controls execution of the possible steps from the configuration file.
-func Workflow(steps []Step, blackboard *blackboard.Blackboard) {
+func Workflow(steps []blackboard.Step, blackboard *blackboard.Blackboard) {
 	if blackboard.FastForwardToStep != 0 {
 		for _, step := range steps[:blackboard.FastForwardToStep] {
 			actionSelector(step, true)

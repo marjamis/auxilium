@@ -1,13 +1,28 @@
 package blackboard
 
-import "fmt"
+import (
+	"fmt"
+)
 
-// TODO am I just replicating the configuration file here? especially as there isn't any validation? If we have validation on top then Im happy. This plus the file and how these are set/validated from the configuration file and the blackboard all needs a bit of a think and reworking.
+// Step is the struct for all the possible information that a Step may have.
+// Note: in the future perhaps I should break these out into their own structures rather than being this flat? Especially as not all combinations make sense.
+type Step struct {
+	Action               string   `yaml:"Action"`
+	Text                 string   `yaml:"Text"`
+	TextColour           string   `yaml:"TextColour,omitempty"`
+	TextBackgroundColour string   `yaml:"BackgroundColour,omitempty"`
+	Command              string   `yaml:"Command"`
+	Args                 []string `yaml:"Args"`
+	FileLocation         string   `yaml:"FileLocation"`
+	Target               string   `yaml:"Target"`
+	WorkingDirectory     string   `yaml:"WorkingDirectory"`
+}
+
 // Defaults contains data of default values used for details in the cluster via the blackboard.
 type Defaults struct {
-	BackgroundColour string
-	TextColour       string
-	WorkingDirectory string
+	BackgroundColour string `yaml:"BackgroundColour"`
+	TextColour       string `yaml:"TextColour"`
+	WorkingDirectory string `yaml:"WorkingDirectory"`
 }
 
 // Blackboard contains all state information used for the application and can be easily referenced as required.
@@ -16,6 +31,7 @@ type Blackboard struct {
 	ContinueFromStep  int
 	FastForwardToStep int
 	Defaults          Defaults
+	Steps             []Step `yaml:"Steps"`
 }
 
 // BlackboardData is the default blackboard used for this package but custom versions of this Blackboard can be created.
