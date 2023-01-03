@@ -10,17 +10,5 @@ helper: # Adapted from: https://marmelab.com/blog/2016/02/29/auto-documented-mak
 	@echo "Available targets..." # @ will not output shell command part to stdout that Makefiles normally do but will execute and display the output.
 	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-command:
-	@echo "Hello $(NAME)"
-
-build: ## Builds the application
-
-test: build ## Builds and then runs tests against the application
-
-run: ## Runs the prod version of the application
-	$(MAKE) command NAME="marjamis"
-
-dev: ## Runs a dev version of the application
-	$(MAKE) command NAME="devTester"
-
-clean: ## Cleans up any old/unneeded items
+hello:
+	@echo "Hello marjamis"

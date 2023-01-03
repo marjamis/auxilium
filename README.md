@@ -10,9 +10,13 @@ auxilium is an application that will take a configuration file of one to many "s
 
 These actions and configurations, listed below can be used for run other programs, commands or simply output text.
 
-## Examples
+## Demo
 
-* [Configuration file example](./test/demo.aux.yml)
+This gif runs through how the [demo auxilium configuration](./test/demo.aux.yml) looks, including user inputs.
+
+![Gif of the demo](./img/demo.gif)
+
+**Note:** Ironically the auxilium demo was captured  with [charm's VHS](https://github.com/charmbracelet/vhs) which contains a lot of the functionality intended with auxilium, though with additional features, functionality, and polish. Hence most people should use [VHS](https://github.com/charmbracelet/vhs) over auxilium.
 
 ## Command help
 
