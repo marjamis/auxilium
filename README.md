@@ -1,4 +1,5 @@
 # auxilium
+
 <p align="center">
   <img width="300" src="./img/auxilium.png">
 </p>
@@ -9,10 +10,16 @@ auxilium is an application that will take a configuration file of one to many "s
 
 These actions and configurations, listed below can be used for run other programs, commands or simply output text.
 
-## Examples
-* [Configuration file example](./test/config.aux.yml)
+## Demo
+
+This gif runs through how the [demo auxilium configuration](./test/demo.aux.yml) looks, including user inputs.
+
+![Gif of the demo](./img/demo.gif)
+
+**Note:** Ironically the auxilium demo was captured  with [charm's VHS](https://github.com/charmbracelet/vhs) which contains a lot of the functionality intended with auxilium, though with additional features, functionality, and polish. Hence most people should use [VHS](https://github.com/charmbracelet/vhs) over auxilium.
 
 ## Command help
+
 ```bash
 $ auxilium
 
@@ -38,6 +45,7 @@ Use "auxilium [command] --help" for more information about a command.
 ```
 
 ## Available actions
+
 | Action Type | Description |
 | --- | --- |
 | OutputText | Prints text to the screen. |
@@ -46,7 +54,9 @@ Use "auxilium [command] --help" for more information about a command.
 | Makefile | Provides a way to specify a target in a Makefile to be run. |
 
 ### Individual options per action type
+
 #### OutputText action configuration options
+
 | Text option | Description | Default Values | Allowed Values |
 | --- | --- | --- | --- |
 | Text | Text to be displayed. | N/A | Everything |
@@ -54,6 +64,7 @@ Use "auxilium [command] --help" for more information about a command.
 | TextBackgroundColour | The color of the background for your text. | Default of your shell. | Blue, Green, Red, Yellow |
 
 #### RunScript action configuration options
+
 | RunScript option | Description | Default Values | Allowed Values |
 | --- | --- | --- | --- |
 | Command | The command to be run. | N/A | Any valid linux command. |
@@ -61,11 +72,13 @@ Use "auxilium [command] --help" for more information about a command.
 | WorkingDirectory | The directory to be used when executing the script. | Directory where auxilium is executed from. | Any valid directory on the system. |
 
 #### BashShellPrompt action configuration options
+
 | BashShellPrompt option | Description | Default Values | Allowed Values |
 | --- | --- | --- | --- |
 | WorkingDirectory | The directory to be used when entering the bash shell. | Directory where auxilium is executed from. | Any valid directory on the system. |
 
 #### Makefile action configuration options
+
 | Makefile option | Description | Default Values | Allowed Values |
 | --- | --- | --- | --- |
 | FileLocation | The path and name of the Makefile touse. | N/A | Any valid path and file location. |

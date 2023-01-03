@@ -4,27 +4,33 @@ Defaults:
   TextColour: default
   WorkingDirectory: .
 Steps:
+  # Step 1
   - Action: OutputText
     Text: This is the beginning of the tutorial.
     TextColour: White
 
+  # Step 2
   - Action: RunScript
     Command: bash
     Args:
       - ./test/first_script.sh
 
+  # Step 3
   - Action: RunScript
-    Command: python3.6
+    Command: python
     Args:
       - ./test/second_script.py
 
+  # Step 4
   - Action: OutputText
     Text: This is black text colour and green background colour overriding the defaults
     TextColour: Black
     TextBackgroundColour: Green
 
+  # Step 5
   - Action: BashShellPrompt
 
+  # Step 6
   - Action: RunScript
     Command: echo
     Args:
@@ -32,21 +38,21 @@ Steps:
       - is
       - an echo output from the config file
 
+  # Step 7
   - Action: RunScript
     Command: pwd
     WorkingDirectory: /tmp/
 
+  # Step 8
   - Action: RunScript
     Command: whoami
 
+  # Step 9
   - Action: Makefile
     FileLocation: ./test/Makefile
-    Target: run
+    Target: hello
 
-  - Action: Makefile
-    FileLocation: ./test/Makefile
-    Target: dev
-
+  # Step 10
   - Action: OutputText
     Text: This is the end of the tutorial.
     TextColour: White
